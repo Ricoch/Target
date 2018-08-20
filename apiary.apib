@@ -1,0 +1,71 @@
+FORMAT: 1A
+HOST: https://target-ricardo.herokuapp.com/
+
+#TARGET
+
+Target test application
+
+## Users Collection [/api/v1/users]
+
+### Sign up [POST]
+
++ Request (application/json)
+    + Attributes
+        + user (Profile Creation, required)
+
+
++ Response 200 (application/json)
+    + Headers
+
+            access-token: sO2bm_Bpdyoo8r78jZ-fqg
+            client:       QADgNCWRJj0LyRruqzYbBg
+            expiry:       1535989794
+            uid:          test@test.com
+
+    + Attributes
+        + user (Profile Response, required)
+
+
+## Login [/api/v1/users/sign_in]
+
+### Login [POST]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "user":
+                {
+                    "email":    "test@test.com",
+                    "password": "password"
+                }
+            }
+
+
++ Response 200 (application/json)
+    + Headers
+
+            access-token: sO2bm_Bpdyoo8r78jZ-fqg
+            client:       QADgNCWRJj0LyRruqzYbBg
+            expiry:       1535989794
+            uid:          test@test.com
+
+
+    + Attributes
+        + user (Profile Response, required)
+
+# Data Structures
+
+## Profile Response (object)
++ uid:        test@test.com (string) - the provider identifier
++ id:         100 (number)
++ email:      test@test.com (string)
++ provider:   email (enum[string]) - it's the way the user logs in
++ created_at: 2017-02-23T13:54:33.283Z (string)
++ updated_at: 2018-08-20T15:26:25.950Z (string)
+
+## Profile Creation (object)
++ email:                 test@test.com (string)
++ password:              12345678 (string)
++ password_confirmation: 12345678 (string)

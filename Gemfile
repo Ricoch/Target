@@ -30,6 +30,11 @@ gem 'sendgrid', '~> 1.2.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use guard gem for improved testing
+gem 'guard', '~> 2.14'
+gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
+gem 'rb-fsevent', '~> 0.10.3'
+
 group :development, :test do
   gem 'bullet', '~> 5.7.5'
   gem 'factory_bot_rails', '~> 4.8.2'

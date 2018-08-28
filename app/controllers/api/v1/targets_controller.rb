@@ -7,6 +7,10 @@ module Api
         @target = current_user.targets.create! target_params
       end
 
+      def index
+        @targets = current_user.targets
+      end
+
       private
 
       def target_params

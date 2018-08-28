@@ -4,6 +4,8 @@ class User < ApplicationRecord
 
   include DeviseTokenAuth::Concerns::User
 
+  has_many :targets, dependent: :destroy
+
   validates :uid, uniqueness: { scope: :provider }
   validates :email, presence: true
 

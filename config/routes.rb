@@ -4,4 +4,10 @@ Rails.application.routes.draw do
     registrations:  'api/v1/registrations',
     sessions: 'api/v1/sessions'
   }
+
+  namespace :api do
+    namespace :v1, defaults: { format: :json } do
+      resources :targets, only: :create
+    end
+  end
 end

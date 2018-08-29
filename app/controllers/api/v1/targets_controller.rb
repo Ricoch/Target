@@ -11,6 +11,10 @@ module Api
         @targets = current_user.targets
       end
 
+      def show
+        @target = current_user.targets.find(params[:id])
+      end
+
       private
 
       def target_params

@@ -13,7 +13,6 @@ Target test application
     + Attributes
         + user (Profile Creation, required)
 
-
 + Response 200 (application/json)
     + Headers
 
@@ -24,7 +23,6 @@ Target test application
 
     + Attributes
         + user (Profile Response, required)
-
 
 ## Login [/api/v1/users/sign_in]
 
@@ -33,7 +31,7 @@ Target test application
 + Request (application/json)
 
     + Body
-
+    
             {
                 "user":
                 {
@@ -41,7 +39,6 @@ Target test application
                     "password": "password"
                 }
             }
-
 
 + Response 200 (application/json)
     + Headers
@@ -54,6 +51,76 @@ Target test application
 
     + Attributes
         + user (Profile Response, required)
+
+## Targets Collection [/api/v1/targets]
+
+### Create target [POST]
++ Request (application/json)
+    + Headers
+            
+            access-token: sO2bm_Bpdyoo8r78jZ-fqg
+            client:       QADgNCWRJj0LyRruqzYbBg
+            expiry:       1535989794
+            uid:          test@test.com
+    
+    + Attributes
+    
+        + target (Target Request, required)
+            
++ Response 200 (application/json)
+    + Headers
+    
+            access-token: sO2bm_Bpdyoo8r78jZ-fqg
+            client:       QADgNCWRJj0LyRruqzYbBg
+            expiry:       1535989794
+            uid:          test@test.com
+            
+    + Attributes
+            
+        + target (Target Response, required)
+
+### Get Targets [GET]
++ Request (application/json)
+    + Headers
+    
+            access-token: sO2bm_Bpdyoo8r78jZ-fqg
+            client:       QADgNCWRJj0LyRruqzYbBg
+            expiry:       1535989794
+            uid:          test@test.com
+            
++ Response 200
+    + Headers
+    
+            access-token: sO2bm_Bpdyoo8r78jZ-fqg
+            client:       QADgNCWRJj0LyRruqzYbBg
+            expiry:       1535989794
+            uid:          test@test.com
+            
+    + Attributes
+        - targets (array[Target Response])
+
+## Specific Target  [/api/v1/targets/:id]
+
+### Show target [GET]
++ Request (application/json)
+    + Headers
+    
+            access-token: sO2bm_Bpdyoo8r78jZ-fqg
+            client:       QADgNCWRJj0LyRruqzYbBg
+            expiry:       1535989794
+            uid:          test@test.com
+
++ Response 200
+    + Headers
+    
+            access-token: sO2bm_Bpdyoo8r78jZ-fqg
+            client:       QADgNCWRJj0LyRruqzYbBg
+            expiry:       1535989794
+            uid:          test@test.com
+            
+    + Attributes
+        
+        + target (Target Response, required)
 
 # Data Structures
 
@@ -66,6 +133,21 @@ Target test application
 + updated_at: 2018-08-20T15:26:25.950Z (string)
 
 ## Profile Creation (object)
-+ email:                 test@test.com (string)
-+ password:              12345678 (string)
-+ password_confirmation: 12345678 (string)
++ email:                 test@test.com (string, required)
++ password:              12345678 (string, required)
++ password_confirmation: 12345678 (string, required)
+
+## Target Request (object)
++ radius:   600 (number, required)
++ title:    title (string, required)
++ latitude: 34.90834 (number, required)
++ longitue: 56.2031514 (number, required)
++ topic: football, travel, politics, art, dating, music, movies, series, food (enum[string], required)
+
+## Target Response (object)
++ id:       41 (number, required)
++ radius:   600 (number, required)
++ title:    title (string, required)
++ latitude: 34.90834 (number, required)
++ longitue: 56.2031514 (number, required)
++ topic: football, travel, politics, art, dating, music, movies, series, food (enum[string], required)

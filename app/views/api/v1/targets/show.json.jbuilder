@@ -1,3 +1,3 @@
 json.target do
-  json.partial! 'basic', target: @target
+  json.partial! 'basic', target: target
 end

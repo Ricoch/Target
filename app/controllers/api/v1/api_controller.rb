@@ -26,8 +26,6 @@ module Api
       private
 
       def render_error(exception)
-        raise exception if Rails.env.test?
-
         # To properly handle RecordNotFound errors in views
         if exception.cause.is_a?(ActiveRecord::RecordNotFound)
           return render_not_found(exception)
